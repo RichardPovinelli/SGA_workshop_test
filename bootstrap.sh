@@ -7,8 +7,10 @@ if ! command -v python >/dev/null 2>&1; then
 fi
 
 python - <<'PY'
-from src.runtime_assets import ensure_supported_bootstrap_platform
-ensure_supported_bootstrap_platform()
+import platform, sys
+if platform.system() not in ("Linux", "Darwin"):
+    print("bootstrap.sh supports POSIX-style environments only. Use Google Colab, a POSIX shell, or WSL on Windows.", file=sys.stderr)
+    sys.exit(1)
 PY
 
 echo "Installing workshop requirements..."

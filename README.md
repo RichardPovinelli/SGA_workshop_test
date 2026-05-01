@@ -1,10 +1,40 @@
-# SGA_workshop_dev
+# SGA Workshop
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/RichardPovinelli/SGA_workshop/blob/main/setup.ipynb)
+
+Click the badge above to set up your Colab environment for the workshop.
+
+---
 
 Private development repo for building the public workshop repo:
 
 - Public repo: `SGA_workshop`
 - Staging repo: `SGA_workshop_test`
 - Private repo: `SGA_workshop_dev`
+
+## Source Data
+
+The private dataset build pipeline derives the public workshop dataset from the GEFCom2014 load forecasting data.
+This source data is not committed to the repo and must be downloaded manually before running the build pipeline.
+
+### Downloading GEFCom2014 from Kaggle
+
+1. Go to [https://www.kaggle.com/datasets/cthngon/gefcom2014-dataset](https://www.kaggle.com/datasets/cthngon/gefcom2014-dataset)
+2. Sign in to your Kaggle account (required to download)
+3. Click **Download** to get the zip archive
+4. Place the downloaded zip at:
+   ```
+   private/data/gefcom2014_raw.zip
+   ```
+5. Unzip it. The load track data lives under `load/` inside the archive, with task subfolders (`Task 1/`, `Task 2/`, ...) each containing `L{n}-train.csv` and `L{n}-benchmark.csv` files.
+
+### Using the source data
+
+Pass the path to the prepared source CSV or parquet to `derive_public_dataset_from_source_path()` in `private/derive_dataset.py`.
+The pipeline expects columns: `timestamp`, `zone`, `demand`, `temp`.
+You will need to wrangle the raw GEFCom2014 CSVs into that shape before passing them to the build function.
+
+The `private/data/` directory is not tracked by git and should not be committed.
 
 ## Roles
 

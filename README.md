@@ -1,5 +1,5 @@
 # SGA Workshop
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/RichardPovinelli/SGA_workshop_test/blob/main/setup.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/RichardPovinelli/SGA_workshop_test/blob/main/workshop.ipynb)
 
-Click the badge above to open `setup.ipynb` in Google Colab, then follow the instructions to set up your workshop environment.
+Click the badge above to open the workshop notebook in Google Colab.
